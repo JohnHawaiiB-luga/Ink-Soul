@@ -72,6 +72,12 @@
    - Tokens en formato W3C
    - Colores, tipografía, espaciado, sombras
 
+4. **`guia-proyecto-final-ciclo.md`** (1,146 líneas) ⭐ **NUEVO**
+   - Guía completa para proyecto final de ciclo
+   - Metodología: planificación, diseño, implementación
+   - Consejos para defensa y presentación
+   - Recursos adicionales y herramientas
+
 ---
 
 ## 💻 Código Frontend
