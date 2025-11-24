@@ -250,6 +250,7 @@ Errores comunes:
 - `docs/design-specification.md`: Especificación de diseño completa (611 líneas)
 - `docs/content-structure-plan.md`: Plan de estructura de contenido (172 líneas)
 - `docs/design-tokens.json`: Tokens de diseño (formato W3C)
+- `docs/guia-proyecto-final-ciclo.md`: Guía para el proyecto final del ciclo (1,146 líneas)
 
 ## 🎯 Roadmap
 

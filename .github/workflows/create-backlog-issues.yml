@@ -1,0 +1,282 @@
+name: Create Backlog Issues
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "yes" to confirm creating 12 issues'
+        required: true
+        default: 'no'
+
+jobs:
+  create-issues:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.confirm == 'yes'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup GitHub CLI
+        run: |
+          gh auth status
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 1 - Portada y Estructura
+        run: |
+          gh issue create \
+            --title "📋 Guía Proyecto Final - Portada y Estructura" \
+            --body "## Objetivo
+          Completar la portada y estructura inicial del proyecto final.
+
+          ## Tareas
+          - [ ] Crear portada profesional con nombre del proyecto
+          - [ ] Incluir nombre completo, curso escolar y ciclo
+          - [ ] Añadir logo o imagen representativa
+          - [ ] Generar índice automático
+          - [ ] Verificar numeración de páginas
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Portada" \
+            --label "documentation,high-priority"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 2 - Introducción y Objetivos
+        run: |
+          gh issue create \
+            --title "⚡ Guía Proyecto Final - Introducción y Objetivos" \
+            --body "## Objetivo
+          Redactar introducción completa y definir objetivos SMART.
+
+          ## Tareas
+          - [ ] Presentar el tema del proyecto
+          - [ ] Describir relevancia y contexto del problema
+          - [ ] Justificar elección del tema
+          - [ ] Definir objetivo general
+          - [ ] Definir 3-5 objetivos específicos (SMART)
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Introducción" \
+            --label "documentation,high-priority"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 3 - Planificación
+        run: |
+          gh issue create \
+            --title "🗓️ Guía Proyecto Final - Planificación" \
+            --body "## Objetivo
+          Crear planificación detallada con cronograma y costes.
+
+          ## Tareas
+          - [ ] Crear cronograma con fases del proyecto (Gantt)
+          - [ ] Estimar tiempo por fase
+          - [ ] Calcular costes de recursos humanos
+          - [ ] Calcular costes de recursos materiales
+          - [ ] Documentar recursos necesarios
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Planificación" \
+            --label "documentation,planning"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 4 - Estado del Arte
+        run: |
+          gh issue create \
+            --title "🔎 Guía Proyecto Final - Estado del Arte" \
+            --body "## Objetivo
+          Investigar soluciones existentes y documentar estado del arte.
+
+          ## Tareas
+          - [ ] Identificar competidores o soluciones similares
+          - [ ] Analizar fortalezas de soluciones existentes
+          - [ ] Analizar deficiencias y oportunidades
+          - [ ] Investigar tecnologías disponibles
+          - [ ] Recopilar bibliografía inicial
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Estado del Arte" \
+            --label "documentation,research"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 5 - Diseño
+        run: |
+          gh issue create \
+            --title "✍️ Guía Proyecto Final - Diseño" \
+            --body "## Objetivo
+          Crear diseños visuales y documentar arquitectura técnica.
+
+          ## Tareas
+          - [ ] Crear wireframes (baja fidelidad)
+          - [ ] Crear mockups (alta fidelidad)
+          - [ ] Diagrama de arquitectura general
+          - [ ] Diagrama de base de datos (ER)
+          - [ ] Documentar decisiones técnicas
+          - [ ] Justificar elección de stack
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Diseño" \
+            --label "documentation,design"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 6 - Implementación
+        run: |
+          gh issue create \
+            --title "🛠️ Guía Proyecto Final - Implementación" \
+            --body "## Objetivo
+          Documentar proceso de implementación del proyecto.
+
+          ## Tareas
+          - [ ] Documentar estructura del proyecto
+          - [ ] Describir configuración inicial
+          - [ ] Documentar desarrollo por módulos
+          - [ ] Incluir fragmentos de código clave
+          - [ ] Documentar problemas y soluciones ⭐
+          - [ ] Añadir capturas de pantalla
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Implementación" \
+            --label "documentation,implementation"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 7 - Pruebas
+        run: |
+          gh issue create \
+            --title "🌀 Guía Proyecto Final - Pruebas" \
+            --body "## Objetivo
+          Realizar y documentar pruebas completas del sistema.
+
+          ## Tareas
+          - [ ] Pruebas funcionales
+          - [ ] Pruebas de interfaz (UI)
+          - [ ] Pruebas de compatibilidad (navegadores)
+          - [ ] Pruebas de rendimiento
+          - [ ] Crear tabla de resultados
+          - [ ] Verificar cumplimiento de objetivos
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Pruebas" \
+            --label "documentation,testing"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 8 - Conclusiones
+        run: |
+          gh issue create \
+            --title "🤔 Guía Proyecto Final - Conclusiones" \
+            --body "## Objetivo
+          Realizar reflexión final sobre el proyecto.
+
+          ## Tareas
+          - [ ] Reflexión personal: ¿Qué aprendiste?
+          - [ ] Documentar tecnologías aprendidas
+          - [ ] Definir mejoras futuras (prioridades)
+          - [ ] Evaluar viabilidad del proyecto
+          - [ ] Analizar valor de la formación
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Conclusiones" \
+            --label "documentation"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 9 - Bibliografía
+        run: |
+          gh issue create \
+            --title "📚 Guía Proyecto Final - Bibliografía" \
+            --body "## Objetivo
+          Recopilar y formatear todas las fuentes utilizadas.
+
+          ## Tareas
+          - [ ] Recopilar documentación oficial
+          - [ ] Listar artículos y blogs consultados
+          - [ ] Añadir vídeos y tutoriales
+          - [ ] Incluir cursos realizados
+          - [ ] Referenciar repositorios GitHub
+          - [ ] Formatear en estilo consistente (APA/IEEE)
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Bibliografía" \
+            --label "documentation"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 10 - Presentación
+        run: |
+          gh issue create \
+            --title "📊 Guía Proyecto Final - Presentación" \
+            --body "## Objetivo
+          Crear presentación profesional para la defensa.
+
+          ## Tareas
+          - [ ] Crear 15-20 diapositivas
+          - [ ] Diseñar portada atractiva
+          - [ ] Incluir capturas del proyecto
+          - [ ] Crear diagramas visuales
+          - [ ] Mantener consistencia visual
+          - [ ] Evitar exceso de texto
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Diapositivas" \
+            --label "documentation,presentation"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 11 - Demo
+        run: |
+          gh issue create \
+            --title "📺 Guía Proyecto Final - Demostración" \
+            --body "## Objetivo
+          Preparar demostración en vivo del proyecto.
+
+          ## Tareas
+          - [ ] Probar todo en el equipo a usar
+          - [ ] Preparar cuentas de prueba
+          - [ ] Planificar flujo de demo (3-5 min)
+          - [ ] Grabar vídeo backup ⚠️
+          - [ ] Preparar URLs y credenciales
+          - [ ] Limpiar escritorio y notificaciones
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Demostración" \
+            --label "documentation,demo,high-priority"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Issue 12 - Ensayo Exposición
+        run: |
+          gh issue create \
+            --title "👩‍🏫 Guía Proyecto Final - Ensayo Exposición" \
+            --body "## Objetivo
+          Practicar y perfeccionar la exposición oral.
+
+          ## Tareas
+          - [ ] Ensayar presentación 3-5 veces
+          - [ ] Presentar frente a familiares/amigos
+          - [ ] Grabarse en vídeo
+          - [ ] Practicar con cronómetro
+          - [ ] Preparar respuestas a preguntas típicas
+          - [ ] Gestionar tiempo (15-30 min típico)
+
+          ## Referencias
+          - \`docs/guia-proyecto-final-ciclo.md\` - Sección Exposición Oral" \
+            --label "documentation,presentation,high-priority"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          echo "✅ 12 issues creados exitosamente!"
+          echo ""
+          echo "Para añadirlos al proyecto #2:"
+          echo "1. Ve a https://github.com/Hawaiiiiii/Ink-Soul/issues"
+          echo "2. Selecciona los issues recién creados"
+          echo "3. Añádelos al proyecto desde el menú lateral"
+          echo ""
+          echo "O usa: gh project item-add 2 --owner Hawaiiiiii --url <issue-url>"
